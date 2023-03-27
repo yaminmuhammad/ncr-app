@@ -29,7 +29,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'prod',
         'password' => 'prod',
-        'database' => 'prod_control',
+        'database' => 'ncr_app',
         'DBDriver' => 'sqlsrv',
         'DBPrefix' => '',
         'pConnect' => false,

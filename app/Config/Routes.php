@@ -32,6 +32,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/home', 'Login::home');
+$routes->get('/form', 'Login::form');
+$routes->get('/cek', 'Report::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
