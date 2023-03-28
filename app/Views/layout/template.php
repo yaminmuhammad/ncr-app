@@ -8,17 +8,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <title>NCR App | PT CBI</title>
+    <style>
+        /* Works for Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
+        /* Works for Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
     <!-- My CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-    <nav class="navbar sticky-top " style="background-color: whitesmoke;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">NCR App</a>
-        </div>
-    </nav>
     <?= $this->renderSection('content'); ?>
 
     <footer>

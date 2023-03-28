@@ -45,19 +45,19 @@
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">Alamat Email</label>
-                                <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Masukkan Email" />
+                                <input type="email" id="form3Example3" class="form-control form-control-lg border border-2 p-2 mb-2 border-opacity-75" placeholder="Masukkan Email" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-3">
                                 <label class="form-label" for="form3Example4">Password</label>
-                                <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Password" />
+                                <input type="password" id="form3Example4" class="form-control form-control-lg border border-2 p-2 mb-2 border-opacity-75" placeholder="Password" />
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Checkbox -->
                                 <div class="form-check mb-0">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                    <input class="form-check-input border border-2 p-2 mb-2 border-opacity-75" type="checkbox" value="" id="form2Example3" />
                                     <label class="form-check-label" for="form2Example3">
                                         Ingat Saya
                                     </label>
@@ -65,7 +65,7 @@
                                 <a href="#!" class="text-body">Lupa password?</a>
                             </div>
 
-                            <div class="text-center text-lg-start mt-4 pt-2">
+                            <div class="text-center text-lg-center mt-4 pt-2">
                                 <a type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" href="<?= base_url('/home') ?>">Login</a>
                             </div>
 

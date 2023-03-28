@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <h5 class="card-title">NCR Process</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="<?= base_url('/form') ?>" class="btn btn-primary">Go somewhere</a>
+                    <a href="<?= base_url('/form_process') ?>" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">NCR Products</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="<?= base_url('/form') ?>" class="btn btn-primary">Go somewhere</a>
+                    <a href="<?= base_url('/form_product') ?>" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
