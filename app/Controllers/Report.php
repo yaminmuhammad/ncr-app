@@ -22,71 +22,13 @@ class Report extends BaseController
         return view('home');
     }
 
-    public function detail($slug)
+    public function detail()
     {
-        $report = $this->reportModel->where(['slug' => $slug])->first();
-        dd($report);
-    }
+        $data = [
+            'title' => 'Detail Report',
+            'report' => $this->reportModel->getReport()
+        ];
 
-    public function create_product()
-    {
-        // $data = [
-        //     'title' => 'Form Tambah Data Report',
-        //     'validation' => \Config\Services::validation()
-        // ];
-        return view('form_product_view');
-    }
-
-    public function create_process()
-    {
-        // $data = [
-        //     'title' => 'Form Tambah Data Report',
-        //     'validation' => \Config\Services::validation()
-        // ];
-        return view('form_process_view');
-    }
-
-    public function save()
-    {
-        // validasi input
-        if (!$this->validate([
-            'problem' => [
-                'rules' => 'required[report.problem]',
-                'errors' => [
-                    'required' => 'Problem harus diisi.'
-                ]
-            ],
-            'area' => [
-                'rules' => 'required[report.area]',
-                'errors' => [
-                    'required' => 'Area harus diisi.'
-                ]
-            ],
-            'qty' => [
-                'rules' => 'required[report.qty]',
-                'errors' => [
-                    'required' => 'Qty harus diisi.'
-                ]
-            ],
-            'departemen' => [
-                'rules' => 'required[report.departemen]',
-                'errors' => [
-                    'required' => 'Departemen harus diisi.'
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/form')->withInput()->with('validation', $validation);
-        }
-
-
-        $this->reportModel->save([
-            'problem' => $this->request->getVar('problem'),
-            'area' => $this->request->getVar('area'),
-            'qty' => $this->request->getVar('qty'),
-            'departemen' => $this->request->getVar('departemen')
-        ]);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
-        return redirect()->to('/form');
+        return view('report/index', $data);
     }
 }

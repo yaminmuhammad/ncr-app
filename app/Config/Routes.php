@@ -32,12 +32,11 @@ $routes->set404Override();
 $routes->get('/', 'Report::index');
 // $routes->get('/login', 'Login::index');
 $routes->get('/home', 'Report::home');
-$routes->get('/form_product', 'Report::create_product');
-$routes->get('/form_process', 'Report::create_process');
+$routes->get('/form_product', 'Product::create_product');
 $routes->post('/product/save', 'Product::save');
+$routes->get('/form_process', 'Process::create_process');
 $routes->post('/process/save', 'Process::save');
-$routes->get('/cek', 'Report::index');
-$routes->get('/report/(:segment)', 'Report::detail/$1');
+$routes->get('/detail', 'Report::detail');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
