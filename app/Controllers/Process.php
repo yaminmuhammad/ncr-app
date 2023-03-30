@@ -8,6 +8,7 @@ use App\Models\Ncrprocess;
 class Process extends BaseController
 {
     protected $ncrProcess;
+    protected $helpers = ['form'];
     public function __construct()
     {
         $this->ncrProcess = new Ncrprocess();
@@ -18,7 +19,7 @@ class Process extends BaseController
         session();
         $data = [
             'title' => 'Form Tambah Data Report',
-            'validation' => \Config\Services::validation()
+            // 'validation' => \Config\Services::validation()
         ];
         return view('form_process_view', $data);
     }
@@ -31,25 +32,25 @@ class Process extends BaseController
             'problem' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Problem harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'area' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Area harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'qty' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'QTY harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'departemen' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Departemen harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'foto' => [
@@ -62,10 +63,23 @@ class Process extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
+            // $validation = \Config\Services::validation();
 
-            return redirect()->to('/form_process')->withInput('validation', $validation);
+            return redirect()->to('/form_process')->withInput();
+        };
+
+        // ambil foto 
+        $fileFoto = $this->request->getFile('foto');
+        // apakah tidak ada foto yang diupload
+        if ($fileFoto->getError() == 4) {
+            $namaFoto = 'default.jpg';
+        } else {
+            // generate nama file random
+            $namaFoto = $fileFoto->getRandomName();
+            // pindahkan file ke folder img
+            $fileFoto->move('img', $namaFoto);
         }
+
 
         // insert data
         $this->ncrProcess->save([
@@ -73,12 +87,12 @@ class Process extends BaseController
             'area' => $this->request->getVar('area'),
             'qty' => $this->request->getVar('qty'),
             'departemen' => $this->request->getVar('departemen'),
-            'foto' => $this->request->getFile('foto')
+            'foto' => $namaFoto
         ]);
-
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/form_process');
     }
+
     public function index()
     {
         //

@@ -21,26 +21,29 @@
                             <?= csrf_field() ?>
                             <div class="form-outline mb-4">
                                 <label for="problem" class="form-label fs-5">Problem</label>
-                                <textarea class="form-control border border-1 p-2 mb-2 " id="problem" name="problem" style="height: 100px; resize: none;" required></textarea>
+                                <textarea class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('problem')) ? 'is-invalid' : ''; ?>" id="problem" autofocus value="<?= old('problem') ?>" name="problem" style="height: 100px; resize: none;"></textarea>
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('problem'); ?>
+                                </div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="area" class="form-label fs-5">Area</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" required />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" />
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="qty" class="form-label fs-5">QTY</label>
-                                <input type="number" class="form-control border border-2 p-2 mb-2 " id="qty" name="qty" required />
+                                <input type="number" class="form-control border border-2 p-2 mb-2 " id="qty" name="qty" />
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="departemen" class="form-label fs-5">Departemen</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="departemen" name="departemen" required />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="departemen" name="departemen" />
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="foto" class="form-label fs-5 custom-file-label">Upload Foto</label>
                                 <div class="col-sm-8 w-200 h-150">
                                     <img src="/assets/images/default.jpg" class="img-thumbnail img-preview">
                                 </div>
-                                <input type="file" class="form-control border border-2 p-2 mb-2 foto" id="foto" name="foto" onchange="previewImg()" required />
+                                <input type="file" class="form-control border border-2 p-2 mb-2 foto" id="foto" name="foto" onchange="previewImg()" />
                                 <!-- <div class="invalid-feedback">
                                 </div> -->
                             </div>

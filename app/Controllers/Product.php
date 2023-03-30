@@ -8,6 +8,7 @@ use App\Models\Ncrproduct;
 class Product extends BaseController
 {
     protected $ncrProduct;
+    protected $helpers = ['form'];
     public function __construct()
     {
         $this->ncrProduct = new Ncrproduct();
@@ -33,25 +34,25 @@ class Product extends BaseController
             'problem' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Problem harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'area' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Area harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'qty' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'QTY harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'departemen' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Departemen harus diisi'
+                    'required' => 'Kolom {field} harus diisi'
                 ]
             ],
             'foto' => [
@@ -64,9 +65,9 @@ class Product extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
+            // $validation = \Config\Services::validation();
 
-            return redirect()->to('/form_product')->withInput('validation', $validation);
+            return redirect()->to('/form_product')->withInput();
         }
 
         // insert data

@@ -5,7 +5,6 @@
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-6">
-                <?= $validation->listErrors(); ?>
                 <div class="card rounded-3">
                     <!-- <img src="assets/images/gambar1.jpeg" class="w-90" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo"> -->
                     <div class="card-body p-4 p-md-5">
@@ -22,23 +21,26 @@
                         <!-- end flash data -->
                         <form action="/process/save" method="post" enctype="multipart/form-data" class="px-md-2">
                             <?= csrf_field() ?>
-                            <div class="form-outline mb-4">
+                            <div class="form-group mb-4">
                                 <label for="problem" class="form-label fs-5">Problem</label>
-                                <textarea class="form-control border border-2 p-2 mb-2 <?= ($validation->hasError('problem')) ? 'is-invalid' : ''; ?>" id="problem" name="problem" style="height: 100px; resize: none;"></textarea>
+                                <textarea class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('problem')) ? 'is-invalid' : ''; ?>" id="problem" autofocus value="<?= old('problem') ?>" name="problem" style="height: 100px; resize: none;"></textarea>
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('problem'); ?>
+                                </div>
                             </div>
-                            <div class="form-outline mb-4">
+                            <div class="form-group mb-4">
                                 <label for="area" class="form-label fs-5">Area</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" value="<?= old('area') ?>" />
                             </div>
-                            <div class="form-outline mb-4">
+                            <div class="form-group mb-4">
                                 <label for="qty" class="form-label fs-5">QTY</label>
-                                <input type="number" class="form-control border border-2 p-2 mb-2 " id="qty" name="qty" />
+                                <input type="number" class="form-control border border-2 p-2 mb-2 " id="qty" name="qty" value="<?= old('qty') ?>" />
                             </div>
-                            <div class="form-outline mb-4">
+                            <div class="form-group mb-4">
                                 <label for="departemen" class="form-label fs-5">Departemen</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="departemen" name="departemen" />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="departemen" name="departemen" value="<?= old('departemen') ?>" />
                             </div>
-                            <div class="form-outline mb-4">
+                            <div class="form-group mb-4">
                                 <label for="foto" class="form-label fs-5 custom-file-label">Upload Foto</label>
                                 <div class="col-sm-8 w-200 h-150">
                                     <img src="/assets/images/default.jpg" class="img-thumbnail img-preview">
