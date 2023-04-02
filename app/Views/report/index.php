@@ -30,16 +30,15 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($report as $r) : ?>
+                        <?php foreach ($process as $p) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><img src="/img/<?= $r['foto']; ?>" alt="" class="img-thumbnail" style="width: 100px;"></td>
-                                <td><?= $r['problem']; ?></td>
-                                <td><?= $r['area']; ?></td>
-                                <td><?= $r['qty']; ?></td>
-                                <td><?= $r['departemen']; ?></td>
+                                <td><img src="/img/<?= $p['foto']; ?>" alt="" class="img-thumbnail fs-2" style="width: 200px;"></td>
+                                <td><?= $p['problem']; ?></td>
+                                <td><?= $p['area']; ?></td>
+                                <td><?= $p['qty']; ?></td>
+                                <td><?= $p['departemen']; ?></td>
                                 <td>
-                                    <a href="/report/<?= $r['slug']; ?>" class="btn btn-success">Detail</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

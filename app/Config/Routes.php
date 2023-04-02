@@ -36,7 +36,7 @@ $routes->get('/form_product', 'Product::create_product');
 $routes->post('/product/save', 'Product::save');
 $routes->get('/form_process', 'Process::create_process');
 $routes->post('/process/save', 'Process::save');
-$routes->get('/detail', 'Report::detail');
+$routes->get('/detail', 'Process::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -17,8 +17,10 @@ class Process extends BaseController
     public function create_process()
     {
         session();
+
         $data = [
             'title' => 'Form Tambah Data Report',
+
             // 'validation' => \Config\Services::validation()
         ];
         return view('form_process_view', $data);
@@ -95,6 +97,11 @@ class Process extends BaseController
 
     public function index()
     {
-        //
+        $process = $this->ncrProcess->findAll();
+        $data = [
+            'title' => 'Form Tambah Data Report',
+            'process' => $process
+        ];
+        return view('report/index', $data);
     }
 }
