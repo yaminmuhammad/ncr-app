@@ -13,12 +13,18 @@
                         <? csrf_field() ?>
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-user'></i>
-                            <input type="text" id="nama" name="nama" oninput="this.value = this.value.toUpperCase()" class="input" placeholder="Masukkan Nama Lengkap" />
+                            <input type="text" id="nama" name="nama" oninput="this.value = this.value.toUpperCase()" class="input <?= (validation_show_error('nama')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Nama Lengkap" />
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('nama'); ?>
+                            </div>
                         </div>
 
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-lock-alt'></i>
-                            <input type="password" id="npk" name="npk" class="input" placeholder="Masukkan NPK" />
+                            <input type="password" id="npk" name="npk" class="input <?= (validation_show_error('npk')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan NPK" />
+                            <div class="invalid-feedback">
+                                <?= validation_show_error('npk'); ?>
+                            </div>
                         </div>
 
                         <!-- Submit button -->

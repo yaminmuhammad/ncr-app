@@ -26,6 +26,23 @@ class Login extends BaseController
 
     public function auth()
     {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi'
+                ]
+            ],
+            'npk' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'NPK harus diisi'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('login'))->withInput();
+        }
+
         $nama = $this->request->getPost('nama');
         $npk = $this->request->getPost('npk');
         $cek = $this->M_Login->cek_login($nama, $npk);
