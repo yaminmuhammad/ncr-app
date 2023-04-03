@@ -30,22 +30,34 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="area" class="form-label fs-5">Area</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" value="<?= old('area') ?>" />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('area')) ? 'is-invalid' : ''; ?>" id="area" name="area" value="<?= old('area') ?>" />
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('area'); ?>
+                                </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="qty" class="form-label fs-5">QTY</label>
-                                <input type="number" class="form-control border border-2 p-2 mb-2 " id="qty" name="qty" value="<?= old('qty') ?>" />
+                                <input type="number" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('qty')) ? 'is-invalid' : ''; ?>" id="qty" name="qty" value="<?= old('qty') ?>" />
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('qty'); ?>
+                                </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="departemen" class="form-label fs-5">Departemen</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="departemen" name="departemen" value="<?= old('departemen') ?>" />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('departemen')) ? 'is-invalid' : ''; ?>" id="departemen" name="departemen" value="<?= old('departemen') ?>" />
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('departemen'); ?>
+                                </div>
                             </div>
                             <div class="form-group mb-4">
-                                <label for="foto" class="form-label fs-5 custom-file-label">Upload Foto</label>
+                                <label for="foto" class="form-label fs-5 custom-file-label <?= (validation_show_error('foto')) ? 'is-invalid' : ''; ?>">Upload Foto</label>
                                 <div class="col-sm-8 w-200 h-150">
                                     <img src="/assets/images/default.jpg" class="img-thumbnail img-preview">
                                 </div>
                                 <input type="file" class="form-control border border-2 p-2 mb-2 " id="foto" onchange="previewImg()" name="foto" />
+                                <div class="invalid-feedback">
+                                    <?= validation_show_error('foto'); ?>
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <a href="<?= base_url('/home'); ?>" class="btn btn-secondary btn-lg">Back</a>

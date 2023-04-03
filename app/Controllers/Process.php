@@ -98,7 +98,7 @@ class Process extends BaseController
     {
         $process = $this->ncrProcess->findAll();
         $data = [
-            'title' => 'Form Tambah Data Report',
+            'title' => 'Daftar Laporan NCR Process',
             'process' => $process
         ];
         return view('report/index_process_view', $data);

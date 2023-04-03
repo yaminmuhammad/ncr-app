@@ -13,7 +13,7 @@
                         <? csrf_field() ?>
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-user'></i>
-                            <input type="text" id="nama" name="nama" class="input" placeholder="Masukkan Nama Lengkap" />
+                            <input type="text" id="nama" name="nama" oninput="this.value = this.value.toUpperCase()" class="input" placeholder="Masukkan Nama Lengkap" />
                         </div>
 
                         <div class="input-field" style="padding-bottom: 30px;">

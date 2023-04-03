@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="area" class="form-label fs-5">Area</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 " id="area" name="area" />
+                                <input type="text" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('area')) ? 'is-invalid' : ''; ?>" id="area" name="area" />
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="qty" class="form-label fs-5">QTY</label>

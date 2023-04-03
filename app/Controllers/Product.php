@@ -27,6 +27,7 @@ class Product extends BaseController
     {
         $product = $this->ncrProduct->findAll();
         $data = [
+            'title' => 'Daftar Laporan NCR Product',
             'product' => $product
         ];
         return view('report/index_product_view', $data);
