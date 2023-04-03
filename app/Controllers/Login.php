@@ -28,7 +28,7 @@ class Login extends BaseController
         $nama = $this->request->getPost('nama');
         $npk = $this->request->getPost('npk');
         $cek = $this->M_Login->cek_login($nama, $npk);
-        if (!empty($data)) {
+        if (!empty($cek)) {
             $session_data = [
                 'nama' => $cek['nama'],
                 'npk' => $cek['npk'],
@@ -38,7 +38,7 @@ class Login extends BaseController
             return redirect()->to(base_url('home'));
         } else {
             $this->session->setFlashdata('msg', 'Nama atau NPK salah');
-            return redirect()->to(base_url('home'));
+            return redirect()->to(base_url('login'));
         }
     }
 
