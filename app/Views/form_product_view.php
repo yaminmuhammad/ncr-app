@@ -47,7 +47,10 @@
                                 <!-- <div class="invalid-feedback">
                                 </div> -->
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="d-flex justify-content-between">
+                                <a href="<?= base_url('/home'); ?>" class="btn btn-secondary btn-lg">Back</a>
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -2,21 +2,15 @@
 
 <?= $this->section('content') ?>
 <div class="container-fluid ">
-    <div class="row">
+    <div class="row" style="margin-bottom: 200px;">
         <div class="col text-center">
-            <h1 class="text-white">Daftar Laporan</h1>
-            <!-- membuat flash data dari router setelah di save -->
-            <?php if (session()->getFlashdata('pesan')) : ?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <?= session()->getFlashdata('pesan'); ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            <?php endif; ?>
-            <!-- end flash data -->
+            <h1 class="text-white" style="margin-bottom: 50px; margin-top: 50px;">Daftar Laporan NCR Process</h1>
+            <div class="d-flex justify-content-between" style="margin-bottom: 50px;">
+                <a href="<?= base_url('/home'); ?>" class="btn btn-secondary btn-lg">Home</a>
+                <a href="<?= base_url('/detail_product'); ?>" class="btn btn-warning btn-lg">NCR Product</a>
+            </div>
             <div class="table-responsive">
-                <table class="table table-bordered text-white">
+                <table class="table text-white">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

@@ -11,4 +11,9 @@ class Ncrproduct extends Model
 
     // Dates
     protected $useTimestamps = true;
+
+    // public function getProduct()
+    // {
+    //     return $this->findAll();
+    // }
 }

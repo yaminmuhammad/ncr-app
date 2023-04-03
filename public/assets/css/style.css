@@ -18,6 +18,10 @@
   padding: 0 15px 0 15px;
 }
 
+.table tbody tr * {
+  vertical-align: middle;
+}
+
 .input-field .input {
   height: 45px;
   width: 87%;

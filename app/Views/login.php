@@ -14,21 +14,21 @@
                         <!-- Email input -->
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-user'></i>
-                            <input type="email" id="email" class="input" placeholder="Masukkan Email" />
+                            <input type="text" id="username" class="input" placeholder="Masukkan Nama Lengkap" />
                         </div>
 
                         <!-- Password input -->
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-lock-alt'></i>
-                            <input type="password" id="password" class="input" placeholder="Password" />
+                            <input type="password" id="password" class="input" placeholder="Masukkan NPK" />
                         </div>
 
                         <!-- Submit button -->
                         <div class="input-field" style="margin-left: 30px;">
-                            <input type="submit" class="submit" />
+                            <button type="submit" class="submit">Login</button>
                         </div>
 
-                        <div class="two-col">
+                        <!-- <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="" id="check">
                                 <label for="check"> Remember Me</label>
@@ -36,7 +36,7 @@
                             <div class="two">
                                 <label><a href="#">Forgot password?</a></label>
                             </div>
-                        </div>
+                        </div> -->
 
                     </form>
                 </div>

@@ -12,8 +12,8 @@ class Ncrprocess extends Model
     // Dates
     protected $useTimestamps = true;
 
-    public function getProcess()
-    {
-        return $this->findAll();
-    }
+    // public function getProcess()
+    // {
+    //     return $this->findAll();
+    // }
 }

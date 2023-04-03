@@ -20,7 +20,6 @@ class Process extends BaseController
 
         $data = [
             'title' => 'Form Tambah Data Report',
-
             // 'validation' => \Config\Services::validation()
         ];
         return view('form_process_view', $data);
@@ -95,13 +94,13 @@ class Process extends BaseController
         return redirect()->to('/form_process');
     }
 
-    public function index()
+    public function index_process()
     {
         $process = $this->ncrProcess->findAll();
         $data = [
             'title' => 'Form Tambah Data Report',
             'process' => $process
         ];
-        return view('report/index', $data);
+        return view('report/index_process_view', $data);
     }
 }

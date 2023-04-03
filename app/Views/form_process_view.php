@@ -47,7 +47,10 @@
                                 </div>
                                 <input type="file" class="form-control border border-2 p-2 mb-2 " id="foto" onchange="previewImg()" name="foto" />
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="d-flex justify-content-between">
+                                <a href="<?= base_url('/home'); ?>" class="btn btn-secondary btn-lg">Back</a>
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
