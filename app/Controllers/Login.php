@@ -35,9 +35,10 @@ class Login extends BaseController
                 'is_login' => true
             ];
             $this->session->set($session_data);
+            $this->session->setFlashdata('pesan', 'Login Berhasil');
             return redirect()->to(base_url('home'));
         } else {
-            $this->session->setFlashdata('msg', 'Nama atau NPK salah');
+            $this->session->setFlashdata('pesan', 'Nama atau NPK salah');
             return redirect()->to(base_url('login'));
         }
     }

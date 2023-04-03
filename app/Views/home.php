@@ -2,6 +2,14 @@
 
 <?= $this->section('content') ?>
 <div class="container" style="margin-top: 80px;">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> -->
+        </div>
+    <?php endif; ?>
     <div class="row justify-content-center ">
         <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card" style="width: 18rem; ">
