@@ -9,6 +9,7 @@ class Login extends BaseController
 {
     protected $M_Login;
     protected $session;
+    protected $helpers = ['form'];
     public function __construct()
     {
         $this->M_Login = new M_Login();
