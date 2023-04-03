@@ -9,18 +9,16 @@
                     <img src="<?= base_url() ?>assets/images/logo.png" class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form>
-
-                        <!-- Email input -->
+                    <form action="<?= base_url() ?>login/auth" method="post">
+                        <? csrf_field() ?>
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-user'></i>
-                            <input type="text" id="username" class="input" placeholder="Masukkan Nama Lengkap" />
+                            <input type="text" id="nama" name="nama" class="input" placeholder="Masukkan Nama Lengkap" />
                         </div>
 
-                        <!-- Password input -->
                         <div class="input-field" style="padding-bottom: 30px;">
                             <i class='bx bx-lock-alt'></i>
-                            <input type="password" id="password" class="input" placeholder="Masukkan NPK" />
+                            <input type="password" id="npk" name="npk" class="input" placeholder="Masukkan NPK" />
                         </div>
 
                         <!-- Submit button -->

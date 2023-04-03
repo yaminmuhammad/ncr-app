@@ -29,15 +29,20 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Report::index');
-// $routes->get('/login', 'Login::index');
-$routes->get('/home', 'Report::home');
-$routes->get('/form_product', 'Product::create_product');
-$routes->post('/product/save', 'Product::save');
-$routes->get('/form_process', 'Process::create_process');
-$routes->post('/process/save', 'Process::save');
-$routes->get('/detail_process', 'Process::index_process');
-$routes->get('/detail_product', 'Product::index_product');
+
+// LOGIN
+$routes->get('/', 'Login::index');
+$routes->get('/login', 'Login::index');
+$routes->post('/login/auth', 'Login::auth');
+$routes->get('/logout', 'Login::logout');
+
+$routes->get('/home', 'Home::index', ['filter' => 'auth']);
+$routes->get('/form_product', 'Product::create_product', ['filter' => 'auth']);
+$routes->post('/product/save', 'Product::save', ['filter' => 'auth']);
+$routes->get('/form_process', 'Process::create_process', ['filter' => 'auth']);
+$routes->post('/process/save', 'Process::save', ['filter' => 'auth']);
+$routes->get('/detail_process', 'Process::index_process', ['filter' => 'auth']);
+$routes->get('/detail_product', 'Product::index_product', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

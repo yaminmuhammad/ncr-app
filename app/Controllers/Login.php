@@ -28,13 +28,17 @@ class Login extends BaseController
         $nama = $this->request->getPost('nama');
         $npk = $this->request->getPost('npk');
         $cek = $this->M_Login->cek_login($nama, $npk);
-        if ($cek) {
-            $this->session->set('nama', $cek['nama']);
-            $this->session->set('npk', $cek['npk']);
+        if (!empty($data)) {
+            $session_data = [
+                'nama' => $cek['nama'],
+                'npk' => $cek['npk'],
+                'is_login' => true
+            ];
+            $this->session->set($session_data);
             return redirect()->to(base_url('home'));
         } else {
             $this->session->setFlashdata('msg', 'Nama atau NPK salah');
-            return redirect()->to(base_url('login'));
+            return redirect()->to(base_url('home'));
         }
     }
 
