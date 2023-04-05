@@ -84,7 +84,7 @@ class Product extends BaseController
             // generate nama file random
             $namaFoto = $fileFoto->getRandomName();
             // pindahkan file ke folder img
-            $fileFoto->move('img', $namaFoto);
+            $fileFoto->move('img_uploaded', $namaFoto);
         }
 
         // insert data

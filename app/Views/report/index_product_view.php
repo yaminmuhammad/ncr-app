@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid ">
+<div class="container ">
     <div class="row" style="margin-bottom: 200px;">
         <div class="col text-center">
             <h1 class="text-white" style="margin-bottom: 50px; margin-top: 50px;">Daftar Laporan NCR Product</h1>
@@ -10,7 +10,7 @@
                 <a href="<?= base_url('/detail_process'); ?>" class="btn btn-warning btn-lg">NCR Process</a>
             </div>
             <div class="table-responsive">
-                <table class="table text-white">
+                <table class="table text-white align-middle">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -19,7 +19,7 @@
                             <th scope="col">Area</th>
                             <th scope="col">QTY</th>
                             <th scope="col">Departemen</th>
-                            <th scope="col">Aksi</th>
+                            <!-- <th scope="col">Aksi</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -27,13 +27,16 @@
                         <?php foreach ($product as $d) : ?>
                             <tr>
                                 <th scope="row"><?= $i++; ?></th>
-                                <td><img src="/img/<?= $d['foto']; ?>" alt="" class="img-thumbnail fs-2" style="width: 200px;"></td>
+                                <td><img src="/img_uploaded/<?= $d['foto']; ?>" alt="" class="img-thumbnail fs-2" style="width: 200px;"></td>
                                 <td><?= $d['problem']; ?></td>
                                 <td><?= $d['area']; ?></td>
                                 <td><?= $d['qty']; ?></td>
                                 <td><?= $d['departemen']; ?></td>
-                                <td>
-                                </td>
+                                <!-- <td>
+                                    <a href="" class="btn btn-success">
+                                        Export to Excel
+                                    </a>
+                                </td> -->
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
