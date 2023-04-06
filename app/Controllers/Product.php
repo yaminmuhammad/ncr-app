@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Ncrproduct;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Writer\Word2007;
 
 class Product extends BaseController
 {
@@ -82,7 +84,7 @@ class Product extends BaseController
             $namaFoto = 'default.jpg';
         } else {
             // generate nama file random
-            $namaFoto = $fileFoto->getRandomName();
+            $namaFoto = $fileFoto->getName();
             // pindahkan file ke folder img
             $fileFoto->move('img_uploaded', $namaFoto);
         }
@@ -98,5 +100,48 @@ class Product extends BaseController
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/form_product');
+    }
+
+    public function export()
+    {
+        $phpWord = new PhpWord();
+        $phpWord->addTitleStyle(1, ['size' => 16, 'bold' => true, 'name' => 'Arial', 'allCaps' => true], ['alignment' => 'center']);
+        $section = $phpWord->addSection(['orientation' => 'landscape']);
+        $section->addTitle('Laporan NCR Product');
+        $section->addTextBreak();
+        $table = $section->addTable(['borderSize' => 3]);
+        $table->addRow();
+        $table->addCell(1000)->addText('No', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Problem', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Qty', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Departemen', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+
+        $data = $this->ncrProduct->findAll();
+        $no = 1;
+        foreach ($data as $item) {
+            $table->addRow();
+            $table->addCell()->addText($no, [], ['alignment' => 'center']);
+            $table->addCell()->addText($item['problem']);
+            $table->addCell()->addText($item['area'], [], ['alignment' => 'center']);
+            $table->addCell()->addText($item['qty'], [], ['alignment' => 'center']);
+            $table->addCell()->addText($item['departemen'], [], ['alignment' => 'center']);
+            $table->addCell()->addImage('img_uploaded/' . $item['foto'], [
+                'width' => 100,
+                'height' => 100,
+                'align' => 'center',
+            ]);
+            $no++;
+        }
+
+        $writer = new Word2007($phpWord);
+
+        header('Content-Type: application/msword');
+        header('Content-Disposition: attachment;filename="Laporan NCR Product.docx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save("php://output");
+        exit();
     }
 }

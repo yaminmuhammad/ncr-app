@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="form-outline mb-4">
-                                <label for="qty" class="form-label fs-5">QTY</label>
+                                <label for="qty" class="form-label fs-5">Quantity</label>
                                 <input type="number" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('qty')) ? 'is-invalid' : ''; ?>" id="qty" name="qty" value="<?= old('qty') ?>" />
                                 <div class="invalid-feedback">
                                     <?= validation_show_error('qty'); ?>
@@ -42,7 +42,27 @@
                             </div>
                             <div class="form-outline mb-4">
                                 <label for="departemen" class="form-label fs-5">Departemen</label>
-                                <input type="text" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('departemen')) ? 'is-invalid' : ''; ?>" id="departemen" name="departemen" value="<?= old('departemen') ?>" />
+                                <!-- <input type="text" class="form-control border border-2 p-2 mb-2 <?= (validation_show_error('departemen')) ? 'is-invalid' : ''; ?>" id="departemen" name="departemen" value="<?= old('departemen') ?>" /> -->
+                                <select class="form-control select2 departemen <?= (validation_show_error('departemen')) ? 'is-invalid' : ''; ?>" data-placeholder="-- Pilih Departemen --" data-allow-clear="true" name="departemen" id="departemen">
+                                    <option disabled selected>-- Pilih Departemen --</option>
+                                    <option value="GA, IR & CSR">GA, IR & CSR</option>
+                                    <option value="PRODUCTION 1">PRODUCTION 1</option>
+                                    <option value="PRODUCTION 2">PRODUCTION 2</option>
+                                    <option value="PPIC">PPIC</option>
+                                    <option value="PROCUREMENT">PROCUREMENT</option>
+                                    <option value="MAINTENANCE">MAINTENANCE</option>
+                                    <option value="QUALITY ASSURANCE">QUALITY ASSURANCE</option>
+                                    <option value="PPIC">PPIC</option>
+                                    <option value="MARKETING">MARKETING</option>
+                                    <option value="EHS">EHS</option>
+                                    <option value="SUPERVISOR SHIFT 2 & SHIFT 3">SUPERVISOR SHIFT 2 & SHIFT 3</option>
+                                    <option value="FIN, ACC  & RISK MGT CONT">FIN, ACC & RISK MGT CONT</option>
+                                    <option value="HRD">HRD</option>
+                                    <option value="PRODUCT ENGINEERING">PRODUCT ENGINEERING</option>
+                                    <option value="INDUSTRIAL SYSTEM DEVELOPMENT">INDUSTRIAL SYSTEM DEVELOPMENT</option>
+                                    <option value="PROCESS ENGINEERING">PROCESS ENGINEERING</option>
+                                    <option value="MIS">MIS</option>
+                                </select>
                                 <div class="invalid-feedback">
                                     <?= validation_show_error('departemen'); ?>
                                 </div>

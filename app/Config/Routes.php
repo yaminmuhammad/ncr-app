@@ -43,8 +43,8 @@ $routes->get('/form_process', 'Process::create_process', ['filter' => 'auth']);
 $routes->post('/process/save', 'Process::save', ['filter' => 'auth']);
 $routes->get('/detail_process', 'Process::index_process', ['filter' => 'auth']);
 $routes->get('/detail_process/export', 'Process::export', ['filter' => 'auth']);
-$routes->get('/detail_product/export', 'Product::export', ['filter' => 'auth']);
 $routes->get('/detail_product', 'Product::index_product', ['filter' => 'auth']);
+$routes->get('/detail_product/export', 'Product::export', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

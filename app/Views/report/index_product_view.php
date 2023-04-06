@@ -7,6 +7,7 @@
             <h1 class="text-white" style="margin-bottom: 50px; margin-top: 50px;">Daftar Laporan NCR Product</h1>
             <div class="d-flex justify-content-between" style="margin-bottom: 50px;">
                 <a href="<?= base_url('/home'); ?>" class="btn btn-secondary btn-lg">Home</a>
+                <a href="<?= base_url('/detail_product/export'); ?>" class="btn btn-success btn-lg">Export All </a>
                 <a href="<?= base_url('/detail_process'); ?>" class="btn btn-warning btn-lg">NCR Process</a>
             </div>
             <div class="table-responsive">
@@ -17,9 +18,9 @@
                             <th scope="col">Foto</th>
                             <th scope="col">Problem</th>
                             <th scope="col">Area</th>
-                            <th scope="col">QTY</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Departemen</th>
-                            <!-- <th scope="col">Aksi</th> -->
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +33,11 @@
                                 <td><?= $d['area']; ?></td>
                                 <td><?= $d['qty']; ?></td>
                                 <td><?= $d['departemen']; ?></td>
-                                <!-- <td>
+                                <td>
                                     <a href="" class="btn btn-success">
-                                        Export to Excel
+                                        export this
                                     </a>
-                                </td> -->
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
