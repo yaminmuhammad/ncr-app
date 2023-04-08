@@ -20,6 +20,7 @@
                             <th scope="col">Area</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Departemen</th>
+                            <th scope="col">Tanggal/Waktu dibuat</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -33,6 +34,7 @@
                                 <td><?= $p['area']; ?></td>
                                 <td><?= $p['qty']; ?></td>
                                 <td><?= $p['departemen']; ?></td>
+                                <td><?= $p['created_at']; ?></td>
                                 <td>
                                     <a href="/detail_process/export/id" class="btn btn-success">
                                         export this

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Ncrprocess extends Model
 {
     protected $table            = 'ncr_process';
-    protected $allowedFields    = ['problem', 'area', 'qty', 'departemen', 'foto'];
+    protected $allowedFields    = ['problem', 'area', 'qty', 'departemen', 'foto', 'created_at'];
 
     // Dates
     protected $useTimestamps = true;

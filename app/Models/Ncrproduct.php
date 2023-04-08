@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Ncrproduct extends Model
 {
     protected $table            = 'ncr_product';
-    protected $allowedFields    = ['problem', 'area', 'qty', 'departemen', 'foto',];
+    protected $allowedFields    = ['problem', 'area', 'qty', 'departemen', 'foto', 'created_at'];
 
     // Dates
     protected $useTimestamps = true;

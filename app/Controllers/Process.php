@@ -12,9 +12,11 @@ use PhpOffice\PhpWord\Writer\Word2007;
 class Process extends BaseController
 {
     protected $ncrProcess;
+    protected $db;
     protected $helpers = ['form'];
     public function __construct()
     {
+        $this->db = \Config\Database::connect();
         $this->ncrProcess = new Ncrprocess();
     }
 
@@ -281,7 +283,9 @@ class Process extends BaseController
         $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Quantity', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Departemen', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Tanggal/Waktu dibuat', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+
 
         $data = $this->ncrProcess->findAll();
         $no = 1;
@@ -292,6 +296,7 @@ class Process extends BaseController
             $table->addCell()->addText($item['area'], [], ['alignment' => 'center']);
             $table->addCell()->addText($item['qty'], [], ['alignment' => 'center']);
             $table->addCell()->addText($item['departemen'], [], ['alignment' => 'center']);
+            $table->addCell()->addText($item['created_at'], [], ['alignment' => 'center']);
             $table->addCell()->addImage('img_uploaded/' . $item['foto'], [
                 'width' => 100,
                 'height' => 100,
@@ -308,5 +313,11 @@ class Process extends BaseController
 
         $writer->save("php://output");
         exit();
+    }
+
+    public function exportId()
+    {
+        $id = $this->request->getVar('id');
+        $data = $this->db->query("SELECT * FROM ncr_process WHERE id = $id")->getRowArray();
     }
 }

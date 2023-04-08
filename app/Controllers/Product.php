@@ -116,6 +116,7 @@ class Product extends BaseController
         $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Qty', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Departemen', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Tanggal/Waktu dibuat', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
 
         $data = $this->ncrProduct->findAll();
@@ -127,6 +128,7 @@ class Product extends BaseController
             $table->addCell()->addText($item['area'], [], ['alignment' => 'center']);
             $table->addCell()->addText($item['qty'], [], ['alignment' => 'center']);
             $table->addCell()->addText($item['departemen'], [], ['alignment' => 'center']);
+            $table->addCell()->addText($item['created_at'], [], ['alignment' => 'center']);
             $table->addCell()->addImage('img_uploaded/' . $item['foto'], [
                 'width' => 100,
                 'height' => 100,
