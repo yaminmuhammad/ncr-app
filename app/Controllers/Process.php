@@ -315,6 +315,57 @@ class Process extends BaseController
         exit();
     }
 
+
+    public function exportid($id)
+    {
+
+        $phpWord = new PhpWord();
+        $phpWord->addTitleStyle(1, ['size' => 16, 'bold' => true, 'name' => 'Arial', 'allCaps' => true], ['alignment' => 'center']);
+        $section = $phpWord->addSection(['orientation' => 'landscape']);
+        $section->addTitle('Detail Laporan NCR Process');
+        $section->addTextBreak();
+        $table = $section->addTable(['borderSize' => 3]);
+        $table->addRow();
+        $table->addCell(1000)->addText('No', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Problem', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Quantity', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Departemen', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Tanggal/Waktu dibuat', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+
+
+        $data = $this->ncrProcess->find($id);
+        // dd($data);
+
+        $no = 1;
+        // foreach ($data as $item) {
+        $table->addRow();
+        $table->addCell()->addText($no, [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['problem']);
+        $table->addCell()->addText($data['area'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['qty'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['departemen'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['created_at'], [], ['alignment' => 'center']);
+        $table->addCell()->addImage('img_uploaded/' . $data['foto'], [
+            'width' => 100,
+            'height' => 100,
+            'align' => 'center',
+        ]);
+        //     $no++;
+        // }
+
+        $writer = new Word2007($phpWord);
+
+        header('Content-Type: application/msword');
+        header('Content-Disposition: attachment;filename="Laporan NCR Process.docx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save("php://output");
+        exit();
+    }
+
+
     public function detail($id)
     {
         $data = [
@@ -322,6 +373,6 @@ class Process extends BaseController
             'process' => $this->ncrProcess->getProcess($id),
         ];
 
-        return view('process/detail', $data);
+        return view('detail_process_view', $data);
     }
 }
