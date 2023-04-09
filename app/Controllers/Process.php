@@ -12,11 +12,11 @@ use PhpOffice\PhpWord\Writer\Word2007;
 class Process extends BaseController
 {
     protected $ncrProcess;
-    protected $db;
+    // protected $db;
     protected $helpers = ['form'];
     public function __construct()
     {
-        $this->db = \Config\Database::connect();
+        // $this->db = \Config\Database::connect();
         $this->ncrProcess = new Ncrprocess();
     }
 
@@ -315,9 +315,13 @@ class Process extends BaseController
         exit();
     }
 
-    public function exportId()
+    public function detail($id)
     {
-        $id = $this->request->getVar('id');
-        $data = $this->db->query("SELECT * FROM ncr_process WHERE id = $id")->getRowArray();
+        $data = [
+            'title' => 'Detail NCR Process',
+            'process' => $this->ncrProcess->getProcess($id),
+        ];
+
+        return view('process/detail', $data);
     }
 }

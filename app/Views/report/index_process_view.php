@@ -36,7 +36,7 @@
                                 <td><?= $p['departemen']; ?></td>
                                 <td><?= $p['created_at']; ?></td>
                                 <td>
-                                    <a href="/detail_process/export/id" class="btn btn-success">
+                                    <a href="/detail_process/<?= $p['id']; ?>" class="btn btn-success">
                                         export this
                                     </a>
                                 </td>
