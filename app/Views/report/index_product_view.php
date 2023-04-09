@@ -20,7 +20,6 @@
                             <th scope="col">Area</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Departemen</th>
-                            <th scope="col">Tanggal/Waktu dibuat</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -34,10 +33,9 @@
                                 <td><?= $d['area']; ?></td>
                                 <td><?= $d['qty']; ?></td>
                                 <td><?= $d['departemen']; ?></td>
-                                <td><?= $d['created_at']; ?></td>
                                 <td>
-                                    <a href="" class="btn btn-success">
-                                        export this
+                                    <a href="/detail_product/<?= $d['id']; ?>" class="btn btn-light">
+                                        Export this
                                     </a>
                                 </td>
                             </tr>

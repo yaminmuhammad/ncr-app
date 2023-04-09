@@ -41,12 +41,14 @@ $routes->get('/form_product', 'Product::create_product', ['filter' => 'auth']);
 $routes->post('/product/save', 'Product::save', ['filter' => 'auth']);
 $routes->get('/form_process', 'Process::create_process', ['filter' => 'auth']);
 $routes->post('/process/save', 'Process::save', ['filter' => 'auth']);
+
 $routes->get('/detail_process', 'Process::index_process', ['filter' => 'auth']);
-// $routes->get('/detail_process/(:any)', 'Process::detail/$1', ['filter' => 'auth']);
-$routes->get('/detail_process/(:any)', 'Process::exportid/$1', ['filter' => 'auth']);
 $routes->get('/detail_process/export', 'Process::export', ['filter' => 'auth']);
+$routes->get('/detail_process/(:any)', 'Process::exportid/$1', ['filter' => 'auth']);
+
 $routes->get('/detail_product', 'Product::index_product', ['filter' => 'auth']);
 $routes->get('/detail_product/export', 'Product::export', ['filter' => 'auth']);
+$routes->get('/detail_product/(:any)', 'Product::exportid/$1', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

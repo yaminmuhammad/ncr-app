@@ -146,4 +146,43 @@ class Product extends BaseController
         $writer->save("php://output");
         exit();
     }
+
+    public function exportid($id)
+    {
+        $phpWord = new PhpWord();
+        $data = $this->ncrProduct->find($id);
+        $phpWord->addTitleStyle(1, ['size' => 16, 'bold' => true, 'name' => 'Arial', 'allCaps' => true], ['alignment' => 'center']);
+        $section = $phpWord->addSection(['orientation' => 'landscape']);
+        $section->addTitle('Detail Laporan NCR Product');
+        $section->addTextBreak();
+        $table = $section->addTable(['borderSize' => 3]);
+        $table->addRow();
+        $table->addCell(5000)->addText('Problem', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Quantity', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Departemen', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Tanggal/Waktu dibuat', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+        $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
+
+        $table->addRow();
+        $table->addCell()->addText($data['problem']);
+        $table->addCell()->addText($data['area'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['qty'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['departemen'], [], ['alignment' => 'center']);
+        $table->addCell()->addText($data['created_at'], [], ['alignment' => 'center']);
+        $table->addCell()->addImage('img_uploaded/' . $data['foto'], [
+            'width' => 100,
+            'height' => 100,
+            'align' => 'center',
+        ]);
+
+        $writer = new Word2007($phpWord);
+
+        header('Content-Type: application/msword');
+        header('Content-Disposition: attachment;filename="Laporan NCR Process.docx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save("php://output");
+        exit();
+    }
 }

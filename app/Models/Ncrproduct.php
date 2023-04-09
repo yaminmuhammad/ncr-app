@@ -12,8 +12,10 @@ class Ncrproduct extends Model
     // Dates
     protected $useTimestamps = true;
 
-    // public function getProduct()
+    // public function getProduct($id)
     // {
-    //     return $this->findAll();
+    //     return $this->where([
+    //         'id' => $id
+    //     ])->first();
     // }
 }

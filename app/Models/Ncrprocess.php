@@ -12,10 +12,10 @@ class Ncrprocess extends Model
     // Dates
     protected $useTimestamps = true;
 
-    public function getProcess($id)
-    {
-        return $this->where([
-            'id' => $id
-        ])->first();
-    }
+    // public function getProcess($id)
+    // {
+    //     return $this->where([
+    //         'id' => $id
+    //     ])->first();
+    // }
 }

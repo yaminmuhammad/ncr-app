@@ -110,164 +110,6 @@ class Process extends BaseController
         return view('report/index_process_view', $data);
     }
 
-    // public function export()
-    // {
-    //     /* ------------PERTAMA---------------- */
-    //     // $spreadsheet = new Spreadsheet();
-    //     // $spreadsheet->getActiveSheet()->getProtection()->setSheet(true);
-    //     // $sheet = $spreadsheet->getActiveSheet();
-
-    //     // $sheet->setCellValue('A1', "DATA LAPORAN NCR");
-    //     // $sheet->mergeCells('A1:D1');
-    //     // $sheet->getStyle('A1')->getAlignment()->setHorizontal('center');
-    //     // $sheet->getStyle('A1')->getFont()->setBold(true);
-    //     // $sheet->getStyle('A1')->getFont()->setSize(16);
-
-    //     // $sheet->setCellValue('A3', 'No');
-    //     // $sheet->setCellValue('B3', 'Problem');
-    //     // $sheet->setCellValue('C3', 'Area');
-    //     // $sheet->setCellValue('D3', 'Qty');
-    //     // $sheet->setCellValue('E3', 'Departemen');
-    //     // $sheet->setCellValue('F3', 'Foto');
-
-    //     // $process = $this->ncrProcess->findAll();
-    //     // $no = 1;
-    //     // $x = 4;
-    //     // foreach ($process as $row) {
-    //     //     $sheet->setCellValue('A' . $x, $no++);
-    //     //     $sheet->setCellValue('B' . $x, $row['problem']);
-    //     //     $sheet->setCellValue('C' . $x, $row['area']);
-    //     //     $sheet->setCellValue('D' . $x, $row['qty']);
-    //     //     $sheet->setCellValue('E' . $x, $row['departemen']);
-    //     //     $sheet->setCellValue('F' . $x, $row['foto']);
-    //     //     $x++;
-    //     // }
-
-    //     // $writer = new Xlsx($spreadsheet);
-    //     // $filename = 'laporan-ncr-process';
-
-    //     // header('Content-Type: application/vnd.ms-excel');
-    //     // header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
-    //     // header('Cache-Control: max-age=0');
-
-    //     // $writer->save('php://output');
-    //     // $processModel = new Ncrprocess();
-    //     // $process = $processModel->findAll();
-
-    //     // $spreadsheet = new Spreadsheet();
-    //     // $spreadsheet->getActiveSheet()->getProtection()->setSheet(true);
-
-    //     // $spreadsheet->setActiveSheetIndex(0)
-    //     //     ->setCellValue('A1', 'DATA LAPORAN NCR PROCESS')
-    //     //     ->setCellValue('A3', 'No')
-    //     //     ->setCellValue('B3', 'Problem')
-    //     //     ->setCellValue('C3', 'Area')
-    //     //     ->setCellValue('D3', 'Qty')
-    //     //     ->setCellValue('E3', 'Departemen')
-    //     //     ->setCellValue('F3', 'Foto');
-
-    //     // $column = 4;
-
-    //     // foreach ($process as $p) {
-    //     //     $spreadsheet->setActiveSheetIndex(0)
-    //     //         ->setCellValue('A' . $column, $p['id'])
-    //     //         ->setCellValue('B' . $column, $p['problem'])
-    //     //         ->setCellValue('C' . $column, $p['area'])
-    //     //         ->setCellValue('D' . $column, $p['qty'])
-    //     //         ->setCellValue('E' . $column, $p['departemen'])
-    //     //         ->setCellValue('F' . $column, $p['foto']);
-    //     //     $column++;
-    //     // }
-
-    //     // $writer = new Xlsx($spreadsheet);
-    //     // $filename = 'laporan-ncr-process';
-
-    //     // header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    //     // header('Content-Disposition: attachment;filename=' . $filename . '.xlsx');
-    //     // header('Cache-Control: max-age=0');
-
-    //     // $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-    //     // $writer->save('php://output');
-    //     // exit();
-
-    //     /* ------------PERTAMA---------------- */
-
-    //     // mengambil data dari table db 
-    //     $data = $this->ncrProcess->findAll();
-
-    //     // membuat object baru dari class Spreadsheet
-    //     $spreadsheet = new Spreadsheet();
-
-    //     // membuat sheet baru
-    //     $sheet = $spreadsheet->getActiveSheet();
-
-    //     // mengatur nama sheet
-
-    //     $spreadsheet->getProperties()
-    //         ->setCreator('Nama Anda')
-    //         ->setLastModifiedBy('Nama Anda')
-    //         ->setTitle('Judul Dokumen')
-    //         ->setSubject('Subject Dokumen')
-    //         ->setDescription('Deskripsi Dokumen')
-    //         ->setKeywords('Keyword Dokumen')
-    //         ->setCategory('Kategori Dokumen');
-
-    //     $sheet->setCellValue('A1', 'No');
-    //     $sheet->setCellValue('B1', 'Problem');
-    //     $sheet->setCellValue('C1', 'Area');
-    //     $sheet->setCellValue('D1', 'Qty');
-    //     $sheet->setCellValue('E1', 'Departemen');
-    //     $sheet->setCellValue('F1', 'Foto');
-
-    //     // set lebar kolom pada sheet 
-    //     $sheet->getColumnDimension('A')->setWidth(5);
-    //     $sheet->getColumnDimension('B')->setWidth(20);
-    //     $sheet->getColumnDimension('C')->setWidth(20);
-    //     $sheet->getColumnDimension('D')->setWidth(20);
-    //     $sheet->getColumnDimension('E')->setWidth(20);
-    //     $sheet->getColumnDimension('F')->setWidth(20);
-
-    //     // set font bold pada juduk kolom
-    //     $sheet->getStyle('A1:F1')->getFont()->setBold(true);
-
-    //     // set aligment pada judul kolom
-    //     $sheet->getStyle('A:F')->getAlignment()->setHorizontal('center');
-
-    //     // set border pada judul kolom
-    //     $sheet->getStyle('A1:F1')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
-
-    //     $rowNumber = 2;
-    //     foreach ($data as $row) {
-    //         $sheet->setCellValue('A' . $rowNumber, $row['id']);
-    //         $sheet->setCellValue('B' . $rowNumber, $row['problem']);
-    //         $sheet->setCellValue('C' . $rowNumber, $row['area']);
-    //         $sheet->setCellValue('D' . $rowNumber, $row['qty']);
-    //         $sheet->setCellValue('E' . $rowNumber, $row['departemen']);
-    //         $sheet->setCellValue('F' . $rowNumber, $row['foto']);
-    //         $rowNumber++;
-    //     }
-
-    //     // set nama file yang akan disimpan dan diunduh 
-    //     $filename = 'Laporan NCR Process.xlsx';
-
-    //     // buat objek writer untuk menulis file excel 
-    //     $writer = new Xlsx($spreadsheet);
-
-    //     // simpan file 
-    //     $writer->save($filename);
-
-    //     // unduh file
-    //     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    //     header('Content-Disposition: attachment;filename="' . $filename . '"');
-    //     header('Cache-Control: max-age=0');
-
-    //     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-    //     $reader->setReadDataOnly(true);
-    //     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-    //     $writer->save('php://output');
-    //     exit();
-    // }
-
     public function export()
     {
 
@@ -318,15 +160,14 @@ class Process extends BaseController
 
     public function exportid($id)
     {
-
         $phpWord = new PhpWord();
+        $data = $this->ncrProcess->find($id);
         $phpWord->addTitleStyle(1, ['size' => 16, 'bold' => true, 'name' => 'Arial', 'allCaps' => true], ['alignment' => 'center']);
         $section = $phpWord->addSection(['orientation' => 'landscape']);
         $section->addTitle('Detail Laporan NCR Process');
         $section->addTextBreak();
         $table = $section->addTable(['borderSize' => 3]);
         $table->addRow();
-        $table->addCell(1000)->addText('No', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Problem', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Area', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Quantity', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
@@ -334,14 +175,7 @@ class Process extends BaseController
         $table->addCell(5000)->addText('Tanggal/Waktu dibuat', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
         $table->addCell(5000)->addText('Foto', ['allCaps' => true, 'bold' => true,], ['alignment' => 'center']);
 
-
-        $data = $this->ncrProcess->find($id);
-        // dd($data);
-
-        $no = 1;
-        // foreach ($data as $item) {
         $table->addRow();
-        $table->addCell()->addText($no, [], ['alignment' => 'center']);
         $table->addCell()->addText($data['problem']);
         $table->addCell()->addText($data['area'], [], ['alignment' => 'center']);
         $table->addCell()->addText($data['qty'], [], ['alignment' => 'center']);
@@ -352,8 +186,6 @@ class Process extends BaseController
             'height' => 100,
             'align' => 'center',
         ]);
-        //     $no++;
-        // }
 
         $writer = new Word2007($phpWord);
 
@@ -363,16 +195,5 @@ class Process extends BaseController
 
         $writer->save("php://output");
         exit();
-    }
-
-
-    public function detail($id)
-    {
-        $data = [
-            'title' => 'Detail NCR Process',
-            'process' => $this->ncrProcess->getProcess($id),
-        ];
-
-        return view('detail_process_view', $data);
     }
 }
